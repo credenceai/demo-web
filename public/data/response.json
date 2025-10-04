@@ -1,0 +1,37 @@
+{
+  "claim_id": "clm_01JPQ6ABCD12",
+  "claim": "The WHO declared mpox a global health emergency in 2024.",
+  "verdict": {
+    "label": "Likely False",
+    "score": 0.83,
+    "rationale": "Weighted stance over top evidence ...",
+    "stance_distribution": {"support":0.08,"refute":0.76,"neutral":0.16}
+  },
+  "evidence": [
+    {
+      "evidence_id": "ev_01K3XYZ",
+      "url": "https://www.who.int/...",
+      "domain": "who.int",
+      "published_at": "2024-07-14",
+      "snippet": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "stance": {"label":"refute","confidence":0.92},
+      "why_selected": {"dense_similarity":0.74,"position":1,"domain_weight":1.2}
+    },
+    {
+      "evidence_id": "ev_01K3XYB",
+      "url": "https://www.who.int/...",
+      "domain": "who.int",
+      "published_at": "2022-05-10",
+      "snippet": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "stance": {"label":"support","confidence":0.88},
+      "why_selected": {"dense_similarity":0.74,"position":1,"domain_weight":1.2}
+    }
+
+  ],
+  "meta": {
+    "retrieval_ms": 870,
+    "classification_ms": 1450,
+    "pipeline_version": "2025-08-21",
+    "disclaimer": "This is an automated judgement; always read the sources."
+  }
+}

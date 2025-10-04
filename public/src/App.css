@@ -1,0 +1,98 @@
+/* Shared class attributes */
+.row-flex-box {
+    display: flex;
+    flex-direction: row;
+    gap: 1vh;
+}
+
+.col-flex-box {
+    display: flex;
+    flex-direction: column;
+}
+.center-text {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.truncate {
+    white-space: nowrap; 
+    overflow: hidden;        
+    text-overflow:ellipsis; 
+}
+
+.interactive {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  display: flex;
+  justify-content: left; 
+  align-items: center; 
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+.interactive:hover {
+    height: 2.5vh;
+    border-color: #646cff;
+    border-radius: 8px;
+    background-color: #1a1a1a;
+}
+.italic {
+    font-style: italic;
+    color: #9f9e9e;
+}
+
+/* Customized class */
+
+#root {
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.body {
+    height : 85vh;
+    gap: 5vw;
+}
+.body-left {
+    padding: 1vh;
+    width :20vw;
+    height: 100vh;
+   background-color: #2d2d2d;
+}
+
+.body-center {
+    place-items: center;
+    gap: 1vh;
+}
+
+
+.history {
+    width: 19vw;
+    height: 2vh;
+    padding: 0.5em;
+}
+
+.history:focus, .history:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
+
+
+textarea {
+    width : 70vw;
+    min-height: 2vh;
+    max-height: 20vh;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1.8vh;
+}
+
+/* ----------------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+

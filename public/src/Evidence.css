@@ -1,0 +1,47 @@
+.evidence {
+    width: 70vw;
+    height: 60vh;
+}
+
+.evidence > h2 {
+    padding: 10px;
+    width: 30vw;
+    height: 2vh;
+    text-align: left;
+    cursor: none;
+}
+
+.distribution {
+    height: 3vh;
+    gap:0;
+    color: black;
+    font-size: 0.7em;
+}
+.support-distribution {
+  background-color: #89dd8c;
+  border-radius: 10px 0 0 10px;
+}
+
+.refute-distribution {
+  background-color: #e54a27da; 
+}
+
+.neutral-distribution {
+  background-color: #b6d7f2;
+  border-radius: 0px 10px 10px 0px;/
+}
+.understrike-box{
+    padding-bottom: 2vh;
+}
+a {
+    width: 100%;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: left; 
+    align-items: center; 
+    cursor: pointer;
+}
+
+a:hover {
+    border: 0;
+}
