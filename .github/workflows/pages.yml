@@ -1,11 +1,19 @@
 name: Deploy Pages
+
 on:
   push:
     branches: [ main ]
+  workflow_dispatch: {}
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
   deploy:
     environment:
@@ -13,13 +21,53 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Node (if needed)
+        if: hashFiles('package.json') != ''
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install deps (if needed)
+        if: hashFiles('package.json') != ''
+        run: npm ci
+
+      - name: Build (if package.json has a build script)
+        if: hashFiles('package.json') != ''
+        run: |
+          node -e "const p=require('./package.json'); if(!(p.scripts&&p.scripts.build)){process.exit(0)}"
+          npm run build
+
+      - name: Detect output directory
+        id: outdir
+        run: |
+          set -e
+          if [ -d "dist" ]; then OUT="dist";
+          elif [ -d "out" ]; then OUT="out";
+          elif [ -d "build" ]; then OUT="build";
+          elif [ -d "public" ]; then OUT="public";
+          else OUT=".";
+          fi
+          echo "dir=$OUT" >> $GITHUB_OUTPUT
+          echo "Using output directory: $OUT"
+
+      - name: Add .nojekyll and SPA fallback
+        run: |
+          touch "${{ steps.outdir.outputs.dir }}/.nojekyll"
+          if [ -f "${{ steps.outdir.outputs.dir }}/index.html" ]; then
+            cp "${{ steps.outdir.outputs.dir }}/index.html" "${{ steps.outdir.outputs.dir }}/404.html"
+          fi
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: public
+          path: ${{ steps.outdir.outputs.dir }}
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
