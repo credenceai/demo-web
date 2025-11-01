@@ -1,5 +1,6 @@
+
 .evidence {
-    width: 70vw;
+    width: var(--ceter-width);
     height: 60vh;
 }
 

@@ -14,6 +14,13 @@ export function History({ id, className, claim }) {
   );
 }
 
+export function Button({class_name, btn_name}) {
+    return (
+        <button className={class_name}>{btn_name}</button>
+    )
+}
+
+
 
 
 

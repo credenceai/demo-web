@@ -1,0 +1,46 @@
+.login {
+    width: 45vw;
+    height: 60vh;
+    background-color: var(--background-color-box);
+    border-radius: 8px;
+    border: 1px transparent;
+    gap: 1vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+.login > button {
+    width: 35vw;
+}
+.relative {
+    position: relative;
+}
+.input-group {
+    height: 8vh;
+}
+
+input {
+    width: 35vw;
+    height: 4vh;
+}
+
+.main.show-popup .body {
+  filter: blur(6px);
+  pointer-events: none; /* disable clicks on blurred area */
+}
+
+.main.show-popup .pop-up {
+  display: block;
+}
+.small-square {
+    background-color: transparent;
+    border-radius: 1px;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+
